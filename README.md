@@ -423,7 +423,7 @@ The `-C` flag is useful for modern web apps that use custom clickable elements (
 | `--json` | JSON output (for agents) |
 | `--full, -f` | Full page screenshot |
 | `--headed` | Show browser window (not headless) |
-| `--cdp <port\|url>` | Connect via Chrome DevTools Protocol (port or WebSocket URL) |
+| `--cdp <port\|url>` | Connect via Chrome DevTools Protocol (port or WebSocket URL; or `AGENT_BROWSER_CDP` env) |
 | `--auto-connect` | Auto-discover and connect to running Chrome (or `AGENT_BROWSER_AUTO_CONNECT` env) |
 | `--config <path>` | Use a custom config file (or `AGENT_BROWSER_CONFIG` env) |
 | `--debug` | Debug output |
@@ -677,6 +677,10 @@ agent-browser --cdp 9222 snapshot
 
 # Connect to remote browser via WebSocket URL
 agent-browser --cdp "wss://your-browser-service.com/cdp?token=..." snapshot
+
+# Or via environment variable
+export AGENT_BROWSER_CDP=9222
+agent-browser snapshot
 ```
 
 The `--cdp` flag accepts either:
